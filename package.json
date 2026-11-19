@@ -45,7 +45,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yashwant938/arch-guard-mcp.git"
+    "url": "https://github.com/yashwant938/arch-guard-mc.git"
   },
   "homepage": "https://arch-guard-mcp.yashwant938.workers.dev",
   "engines": {

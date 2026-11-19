@@ -81,7 +81,7 @@ function renderLandingHtml(origin, tools) {
 }</pre>
       <p style="font-size:13px;color:var(--muted);margin:10px 0 0;">
         For full local repository scanning (<code>audit_codebase_architecture</code>), run the local stdio server from
-        <a href="https://github.com/yashwant938/arch-guard-mcp" target="_blank" rel="noreferrer">github.com/yashwant938/arch-guard-mcp</a>.
+        <a href="https://github.com/yashwant938/arch-guard-mc" target="_blank" rel="noreferrer">github.com/yashwant938/arch-guard-mc</a>.
       </p>
     </div>
 

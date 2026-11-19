@@ -36,7 +36,7 @@ Add to your `mcp_config.json` / `.cursor/mcp.json` / Claude MCP config:
   "mcpServers": {
     "arch-guard-local": {
       "command": "node",
-      "args": ["/absolute/path/to/arch-guard-mcp/bin/arch-guard-mcp.mjs"]
+      "args": ["/absolute/path/to/arch-guard-mc/bin/arch-guard-mcp.mjs"]
     }
   }
 }
