@@ -1,5 +1,6 @@
 # ArchGuard MCP — Architecture Drift, Zero-Downtime SQL & Distributed Systems Verifier
 
+**Official MCP Registry (`active`):** [`io.github.yashwant938/arch-guard-mc@1.0.0`](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.yashwant938%2Farch-guard-mc/versions/latest)  
 **Live Remote MCP Endpoint (Streamable HTTP · Zero Auth):** `https://arch-guard-mcp.yashwant938.workers.dev/mcp`  
 **Live Interactive Explorer:** https://arch-guard-mcp.yashwant938.workers.dev
 
