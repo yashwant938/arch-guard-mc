@@ -1,5 +1,6 @@
 {
   "name": "arch-guard-mcp",
+  "mcpName": "io.github.yashwant938/arch-guard-mc",
   "version": "1.0.0",
   "description": "Architecture drift auditor, zero-downtime SQL migration guardian, and deterministic distributed-systems math MCP server (local stdio + Cloudflare Workers Streamable HTTP) with cross-agent skills.",
   "type": "module",
@@ -27,7 +28,8 @@
     "start": "node bin/arch-guard-mcp.mjs",
     "test": "node --test tests/*.test.mjs",
     "audit:self": "node bin/cli.mjs audit .",
-    "build:worker": "node scripts/bundle-worker.mjs"
+    "build:worker": "node scripts/bundle-worker.mjs",
+    "package:agensi": "node scripts/package-agensi-skill.mjs"
   },
   "keywords": [
     "mcp",

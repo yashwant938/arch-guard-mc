@@ -1,0 +1,11 @@
+# Smithery configuration for ArchGuard MCP (zero secrets required)
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    () => ({
+      command: 'node',
+      args: ['bin/arch-guard-mcp.mjs']
+    })

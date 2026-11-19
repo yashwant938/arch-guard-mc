@@ -133,6 +133,15 @@ npm run audit:self
 
 # Build zero-dependency Cloudflare Worker bundle (dist/worker.mjs)
 npm run build:worker
+
+# Package Agensi-ready SKILL.md ZIP (dist/arch-guard-backend-verifier.zip)
+npm run package:agensi
 ```
+
+### Registry & Marketplace Metadata Included
+- **Official MCP Registry**: [`server.json`](./server.json) (`io.github.yashwant938/arch-guard-mc`)
+- **Glama**: [`glama.json`](./glama.json)
+- **Smithery**: [`smithery.yaml`](./smithery.yaml)
+- **Agensi.io Skill Package & Submission Guide**: [`packages/agensi/arch-guard-backend-verifier/`](./packages/agensi/arch-guard-backend-verifier/SKILL.md) & [`PUBLISHING.md`](./PUBLISHING.md)
 
 Related project: [System Design Complete Guide (Interactive HLD & LLD Atlas)](https://system-design-guide.yashwant938.workers.dev)
