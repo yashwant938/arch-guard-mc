@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.yashwant938/arch-guard-mc",
-  "title": "ArchGuard MCP — Architecture Drift, Zero-Downtime SQL & Distributed Math Verifier",
-  "description": "Zero-dependency MCP server that audits codebases for circular dependencies (Tarjan SCC) & 12 production reliability/security smells, guards SQL DDL migrations with 3-phase Expand-Contract plans, and computes exact distributed-systems capacity, quorum, tail-latency & consistent-hashing math.",
+  "title": "ArchGuard MCP",
+  "description": "Architecture drift auditor (Tarjan SCC), zero-downtime SQL guardian & distributed-systems math.",
   "version": "1.0.0",
   "websiteUrl": "https://arch-guard-mcp.yashwant938.workers.dev",
   "repository": {
@@ -13,17 +13,6 @@
     {
       "type": "streamable-http",
       "url": "https://arch-guard-mcp.yashwant938.workers.dev/mcp"
-    }
-  ],
-  "packages": [
-    {
-      "registryType": "npm",
-      "identifier": "arch-guard-mcp",
-      "version": "1.0.0",
-      "runtimeHint": "npx",
-      "transport": {
-        "type": "stdio"
-      }
     }
   ]
 }
