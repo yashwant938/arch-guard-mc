@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "arch-guard": {
+      "url": "https://arch-guard-mcp.yashwant938.workers.dev/mcp"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "arch-guard",
+  "displayName": "ArchGuard — Architecture & Distributed Systems Verifier",
+  "version": "1.0.0",
+  "description": "Audit codebases for architectural drift & production anti-patterns, guard SQL migrations against table locks with Expand-Contract plans, and compute exact distributed-systems capacity, quorum, tail-latency, and consistent-hashing math.",
+  "author": {
+    "name": "Yashwant Rana",
+    "url": "https://github.com/yashwant938"
+  },
+  "homepage": "https://arch-guard-mcp.yashwant938.workers.dev",
+  "repository": "https://github.com/yashwant938/arch-guard-mcp",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "Audit this codebase for circular dependencies, N+1 loops, missing timeouts, and architectural drift",
+    "Check my SQL migration for zero-downtime locks and generate an Expand-Contract deployment plan",
+    "Calculate exact QPS, storage, shard count, quorum guarantees, and tail latency amplification for our service"
+  ]
+}

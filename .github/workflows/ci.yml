@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-self-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Run full unit & MCP protocol test suite
+        run: npm test
+      - name: Build zero-dependency Cloudflare Worker bundle
+        run: npm run build:worker
+      - name: Self-audit repository with ArchGuard
+        run: npm run audit:self
