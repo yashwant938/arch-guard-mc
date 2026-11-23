@@ -4,6 +4,8 @@
 **Live Remote MCP Endpoint (Streamable HTTP · Zero Auth):** `https://arch-guard-mcp.yashwant938.workers.dev/mcp`  
 **Live Interactive Explorer:** https://arch-guard-mcp.yashwant938.workers.dev
 
+**[Watch the beginner walkthrough (3 min 10 sec)](https://archguard-mcp-walkthrough.vercel.app/)** · English narration and captions. See why a PostgreSQL index build can block new orders, fix the migration, then use ArchGuard to estimate write traffic and trace a circular import. [Download the MP4](docs/walkthrough/archguard-walkthrough.mp4?raw=1).
+
 **ArchGuard** is a zero-dependency **Model Context Protocol (MCP `2025-03-26`) server**, **Agent Skills suite**, and **installable Plugin** built from scratch to eliminate the three biggest blind spots of AI coding agents:
 
 1. **Silent Architectural & Production Reliability Drift** — Coding agents introduce circular imports, N+1 DB loops, outbound HTTP calls without timeouts, unbounded in-memory `Map` caches, check-then-act race conditions, and missing idempotency keys.

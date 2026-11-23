@@ -1,0 +1,210 @@
+WEBVTT
+
+00:00:00.430 --> 00:00:02.241
+Imagine you run an online shop.
+
+00:00:02.466 --> 00:00:05.927
+Orders are slow to look up,
+so you add a database index.
+
+00:00:06.152 --> 00:00:08.968
+Could building it stop shoppers
+from placing new orders?
+
+00:00:09.623 --> 00:00:11.395
+Let's check that change with ArchGuard.
+
+00:00:11.620 --> 00:00:13.277
+We'll run a demo in the browser,
+
+00:00:13.347 --> 00:00:16.846
+fix a migration locally,
+and try a capacity estimate.
+
+00:00:17.072 --> 00:00:20.081
+You can follow the browser steps
+without installing anything.
+
+00:00:21.376 --> 00:00:24.244
+Open the ArchGuard explorer
+from the repository.
+
+00:00:24.469 --> 00:00:26.937
+In the live playground, click List Tools.
+
+00:00:27.162 --> 00:00:30.030
+These are the checks a connected
+coding assistant can call.
+
+00:00:30.769 --> 00:00:32.580
+Click Demo: Audit SQL.
+
+00:00:32.805 --> 00:00:36.652
+The example builds an index on
+orders and drops an old column.
+
+00:00:36.878 --> 00:00:40.054
+ArchGuard reads those
+statements and returns a report.
+
+00:00:40.756 --> 00:00:43.005
+Start with the verdict: block deploy.
+
+00:00:43.231 --> 00:00:45.583
+The index build can hold up new writes.
+
+00:00:45.834 --> 00:00:49.625
+The column change is a separate
+risk: an older copy of the app might
+
+00:00:49.635 --> 00:00:50.853
+still try to read it.
+
+00:00:52.176 --> 00:00:53.665
+Let's isolate the index.
+
+00:00:53.903 --> 00:00:58.343
+With Node twenty or newer, open a
+terminal in the cloned repository.
+
+00:00:58.581 --> 00:01:01.681
+Save this one statement in orders dot SQL,
+
+00:01:01.867 --> 00:01:04.103
+then run the migrate command shown here.
+
+00:01:04.823 --> 00:01:06.518
+The command reads the file.
+
+00:01:06.743 --> 00:01:10.655
+It returns exit code one and
+flags the blocking index build.
+
+00:01:10.880 --> 00:01:13.915
+It also points out that the
+script has no lock timeout.
+
+00:01:14.623 --> 00:01:17.697
+Add a short lock timeout to
+bound the wait for a lock.
+
+00:01:17.922 --> 00:01:21.189
+Change the index build to
+create index concurrently,
+
+00:01:21.298 --> 00:01:24.063
+and run it outside an explicit transaction.
+
+00:01:24.756 --> 00:01:27.237
+Save the file and run the same check again.
+
+00:01:27.475 --> 00:01:31.748
+This time ArchGuard reports zero
+findings and exits successfully.
+
+00:01:31.986 --> 00:01:33.900
+That's a pass on its static checks.
+
+00:01:34.138 --> 00:01:37.895
+Still rehearse the migration
+against a representative database.
+
+00:01:39.189 --> 00:01:42.340
+Back in the explorer,
+choose Demo: Uber Math.
+
+00:01:42.566 --> 00:01:46.142
+This is a ride-dispatch scenario
+with preset assumptions.
+
+00:01:46.380 --> 00:01:49.157
+Start with the assumptions
+before reading the answer.
+
+00:01:49.836 --> 00:01:54.207
+The preset uses forty million daily
+users and one hundred eighty writes
+
+00:01:54.217 --> 00:01:55.332
+per user per day.
+
+00:01:55.570 --> 00:01:58.116
+That's seven point two
+billion writes per day,
+
+00:01:58.328 --> 00:02:01.428
+or about eighty-three thousand
+each second on average.
+
+00:02:02.169 --> 00:02:05.269
+The preset assumes a peak
+four times the average.
+
+00:02:05.494 --> 00:02:08.989
+You get roughly three hundred
+thirty-three thousand writes per second at
+
+00:02:08.999 --> 00:02:09.599
+peak.
+
+00:02:09.824 --> 00:02:13.271
+That multiplier is an input you
+can change for your own service.
+
+00:02:14.576 --> 00:02:17.676
+A local audit can also find
+code that's tied in a knot.
+
+00:02:17.927 --> 00:02:20.717
+Here, orders imports the price calculator,
+
+00:02:20.814 --> 00:02:23.720
+and pricing imports a
+currency constant from orders.
+
+00:02:24.035 --> 00:02:26.542
+Follow the arrows and you
+end up where you started.
+
+00:02:27.223 --> 00:02:30.950
+Run the audit on this example
+directory and the report counts one
+
+00:02:30.960 --> 00:02:32.372
+circular dependency.
+
+00:02:32.597 --> 00:02:35.632
+Move the shared constant
+into a small money module,
+
+00:02:35.806 --> 00:02:38.106
+update the import, and run it again.
+
+00:02:38.344 --> 00:02:40.245
+The cycle count falls to zero.
+
+00:02:41.576 --> 00:02:43.632
+To use the same checks in an editor,
+
+00:02:43.832 --> 00:02:49.109
+add the remote endpoint ending in
+slash M C P to its MCP server settings.
+
+00:02:49.334 --> 00:02:53.181
+MCP is the protocol that lets
+your assistant call these tools.
+
+00:02:53.890 --> 00:02:57.681
+Try asking your assistant to check
+a proposed Postgres migration and
+
+00:02:57.691 --> 00:02:59.244
+explain the first finding.
+
+00:02:59.508 --> 00:03:03.329
+For a full repository audit, use
+the local command shown here.
+
+00:03:03.555 --> 00:03:07.930
+A good first exercise is to fix one
+finding and run the check again.

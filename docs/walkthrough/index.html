@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14241e">
+  <meta name="description" content="Use ArchGuard MCP to check a PostgreSQL migration, estimate write traffic, and trace a circular import. A narrated beginner walkthrough with captions.">
+  <title>ArchGuard MCP · First walkthrough</title>
+  <style>
+    :root { color-scheme: light; --ink: #172b21; --muted: #54675a; --line: #c2cfc1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: #f6f6ed; font: 17px/1.5 system-ui, sans-serif; }
+    main { max-width: 1100px; width: 92%; margin: clamp(22px, 5vw, 58px) auto 60px; }
+    nav, .brand, .links { display: flex; align-items: center; gap: 14px; }
+    nav { justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+    .brand { font-weight: 700; letter-spacing: -.03em; text-decoration: none; }
+    .brand svg { width: 33px; height: 33px; }
+    a { color: #225d3c; text-underline-offset: .2em; }
+    a:focus-visible, video:focus-visible { outline: 3px solid #337a49; outline-offset: 4px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 4.2rem); line-height: 1.05; letter-spacing: -.045em; margin: .65em 0 .25em; }
+    p { margin: 0 0 1.1rem; color: var(--muted); }
+    video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #14241e; border-radius: 12px; }
+    .links { margin: .85em 0 1.7em; flex-wrap: wrap; font-size: .9rem; gap: 1.2rem; }
+    h2 { font-size: 1.35rem; margin: .4em 0; }
+    ol { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,290px),1fr)); gap: 0 1.6rem; }
+    li { border-top: 1px solid var(--line); }
+    li a { display: flex; align-items: baseline; gap: .8rem; padding: .85em .12em; text-decoration: none; }
+    li a:hover, li a:focus-visible { text-decoration: underline; }
+    time { color: var(--muted); font: 14px/1.5 ui-monospace, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <nav aria-label="Project">
+      <a class="brand" href="https://github.com/yashwant938/arch-guard-mc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect x="12" y="12" width="104" height="104" rx="24" fill="#18211B" stroke="#7ED98B" stroke-width="4"/>
+  <path d="M64 26L96 42V66C96 85.5 82.4 98.6 64 104C45.6 98.6 32 85.5 32 66V42L64 26Z" fill="#24382A" stroke="#9EE6A8" stroke-width="3.5" stroke-linejoin="round"/>
+  <polygon points="64,42 82,52 64,62 46,52" fill="#9EE6A8"/>
+  <path d="M46 61L64 71L82 61" stroke="#F6F3EA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 71L64 81L82 71" stroke="#7ED98B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>ArchGuard MCP</a>
+      <a href="https://arch-guard-mcp.yashwant938.workers.dev/">Open live explorer ↗</a>
+    </nav>
+    <h1>Will this index block checkout?</h1>
+    <p>Follow a PostgreSQL migration from a failed check to a clean report. Then estimate traffic and trace a circular import.</p>
+    <video controls playsinline preload="metadata" poster="poster.jpg" aria-label="ArchGuard MCP beginner walkthrough">
+      <source src="archguard-walkthrough.mp4" type="video/mp4">
+      <track kind="captions" src="english.vtt" srclang="en" label="English">
+      <a href="archguard-walkthrough.mp4">Download the walkthrough</a>
+    </video>
+    <div class="links"><a href="archguard-walkthrough.mp4" download>Download video</a><a href="english.vtt" download>English captions</a></div>
+    <h2>Chapters</h2>
+    <ol aria-label="Video chapters">
+        <li><a href="archguard-walkthrough.mp4#t=0.000"><time datetime="PT0S">0:00</time><span>Will this index block checkout?</span></a></li>
+        <li><a href="archguard-walkthrough.mp4#t=20.933"><time datetime="PT20S">0:20</time><span>Run the live SQL demo</span></a></li>
+        <li><a href="archguard-walkthrough.mp4#t=51.733"><time datetime="PT51S">0:51</time><span>Fix and recheck one migration</span></a></li>
+        <li><a href="archguard-walkthrough.mp4#t=98.733"><time datetime="PT98S">1:38</time><span>Read a capacity estimate</span></a></li>
+        <li><a href="archguard-walkthrough.mp4#t=134.133"><time datetime="PT134S">2:14</time><span>Trace a circular import</span></a></li>
+        <li><a href="archguard-walkthrough.mp4#t=161.133"><time datetime="PT161S">2:41</time><span>Use ArchGuard in your own project</span></a></li>
+    </ol>
+  </main>
+  <script>
+    const video = document.querySelector('video');
+    for (const link of document.querySelectorAll('ol a')) {
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        video.currentTime = Number(link.hash.slice(3));
+        video.play().catch(() => video.focus());
+      });
+    }
+  </script>
+</body>
+</html>
